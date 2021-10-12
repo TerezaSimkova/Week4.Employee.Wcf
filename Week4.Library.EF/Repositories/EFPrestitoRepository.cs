@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Week4.Library.Core;
 using Week4.Library.Core.Interfaces;
 using Week4.Library.Core.Models;
 
@@ -36,6 +37,14 @@ namespace Week4.Library.EF.Repositories
             return true;
         }
 
+        public Prestito EditById(DateTime reso, int idLibro)
+        {
+            var oldPrestito = libraryContext.Prestiti.FirstOrDefault(p => p.Id == idLibro);
+            oldPrestito.DataReso = reso;
+            libraryContext.SaveChanges();
+            return oldPrestito;
+        }
+
         public List<Prestito> Fetch()
         {
             return libraryContext.Prestiti.ToList();
@@ -54,5 +63,7 @@ namespace Week4.Library.EF.Repositories
             libraryContext.SaveChanges();
             return true;
         }
+
+   
     }
 }

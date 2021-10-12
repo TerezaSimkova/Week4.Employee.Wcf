@@ -13,7 +13,7 @@ namespace Week4.Library.Core.Models
         [DataMember]
         public int IdLibro { get; set; }
         [DataMember]
-        public Book _Book { get; set; }
+        public Book _Book { get; set; } // ???
         [DataMember]
         public string Utente { get; set; }
         [DataMember]
@@ -21,5 +21,9 @@ namespace Week4.Library.Core.Models
         [DataMember]
         public DateTime DataReso { get; set; }
 
+        public string Print()
+        {
+            return $"Prestito:\t Id: {Id}, IdLibro: {IdLibro},Utente: {Utente} - Data Prestito: {DataPrestito} - Data Reso: {DataReso}";
+        }
     }
 }

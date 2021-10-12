@@ -56,6 +56,18 @@
   <wsdl:message name="ILibraryService_DeletePrestito_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeletePrestitoResponse" />
   </wsdl:message>
+  <wsdl:message name="ILibraryService_GetByIdBook_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetByIdBook" />
+  </wsdl:message>
+  <wsdl:message name="ILibraryService_GetByIdBook_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetByIdBookResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILibraryService_UpdateDataReso_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDataReso" />
+  </wsdl:message>
+  <wsdl:message name="ILibraryService_UpdateDataReso_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDataResoResponse" />
+  </wsdl:message>
   <wsdl:portType name="ILibraryService">
     <wsdl:operation name="FetchBooks">
       <wsdl:input wsaw:Action="http://tempuri.org/ILibraryService/FetchBooks" message="tns:ILibraryService_FetchBooks_InputMessage" />
@@ -88,6 +100,14 @@
     <wsdl:operation name="DeletePrestito">
       <wsdl:input wsaw:Action="http://tempuri.org/ILibraryService/DeletePrestito" message="tns:ILibraryService_DeletePrestito_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILibraryService/DeletePrestitoResponse" message="tns:ILibraryService_DeletePrestito_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByIdBook">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILibraryService/GetByIdBook" message="tns:ILibraryService_GetByIdBook_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILibraryService/GetByIdBookResponse" message="tns:ILibraryService_GetByIdBook_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDataReso">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILibraryService/UpdateDataReso" message="tns:ILibraryService_UpdateDataReso_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILibraryService/UpdateDataResoResponse" message="tns:ILibraryService_UpdateDataReso_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ILibraryService" type="tns:ILibraryService">
@@ -157,6 +177,24 @@
     </wsdl:operation>
     <wsdl:operation name="DeletePrestito">
       <soap:operation soapAction="http://tempuri.org/ILibraryService/DeletePrestito" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByIdBook">
+      <soap:operation soapAction="http://tempuri.org/ILibraryService/GetByIdBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDataReso">
+      <soap:operation soapAction="http://tempuri.org/ILibraryService/UpdateDataReso" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -110,4 +110,33 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetByIdBook">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idBook" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetByIdBookResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Week4.Library.Core" minOccurs="0" name="GetByIdBookResult" nillable="true" type="q7:Book" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateDataReso">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="reso" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="idLibro" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateDataResoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Week4.Library.Core.Models" minOccurs="0" name="UpdateDataResoResult" nillable="true" type="q8:Prestito" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

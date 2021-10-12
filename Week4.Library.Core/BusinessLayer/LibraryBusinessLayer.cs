@@ -71,6 +71,11 @@ namespace Week4.Library.Core.BusinessLayer
             return bookRepo.Update(editBook);
         }
 
+        public Prestito EditDataPrestitoById(DateTime reso, int idLibro)
+        {
+            return presRepo.EditById(reso, idLibro);
+        }
+
         public bool EditPrestito(Prestito newPrestito) // Resa del libro
         {
             if (newPrestito == null)
@@ -89,6 +94,11 @@ namespace Week4.Library.Core.BusinessLayer
         public List<Prestito> FetchPrestiti()
         {
             return presRepo.Fetch();
+        }
+
+        public Book GetByIdBook(int idBook)
+        {
+            return bookRepo.GetById(idBook);
         }
     }
 }

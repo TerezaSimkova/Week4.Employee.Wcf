@@ -15,9 +15,9 @@ namespace Week4.Library.Core
         [DataMember]
         public string Author { get; set; }
 
-        public bool Print()
+        public string Print()
         {
-            throw new NotImplementedException();
+            return $"Id: {Id}, ISBN: {Isbn}, Title: {Title} - Autore: {Author}";
         }
     }
 }

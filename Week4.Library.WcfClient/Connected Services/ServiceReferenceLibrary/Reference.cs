@@ -78,6 +78,22 @@ namespace Week4.Library.WcfClient.ServiceReferenceLibrary {
         System.IAsyncResult BeginDeletePrestito(int idPrestito, System.AsyncCallback callback, object asyncState);
         
         bool EndDeletePrestito(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILibraryService/GetByIdBook", ReplyAction="http://tempuri.org/ILibraryService/GetByIdBookResponse")]
+        Week4.Library.Core.Book GetByIdBook(int idBook);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/ILibraryService/GetByIdBook", ReplyAction="http://tempuri.org/ILibraryService/GetByIdBookResponse")]
+        System.IAsyncResult BeginGetByIdBook(int idBook, System.AsyncCallback callback, object asyncState);
+        
+        Week4.Library.Core.Book EndGetByIdBook(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILibraryService/UpdateDataReso", ReplyAction="http://tempuri.org/ILibraryService/UpdateDataResoResponse")]
+        Week4.Library.Core.Models.Prestito UpdateDataReso(System.DateTime reso, int idLibro);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/ILibraryService/UpdateDataReso", ReplyAction="http://tempuri.org/ILibraryService/UpdateDataResoResponse")]
+        System.IAsyncResult BeginUpdateDataReso(System.DateTime reso, int idLibro, System.AsyncCallback callback, object asyncState);
+        
+        Week4.Library.Core.Models.Prestito EndUpdateDataReso(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -238,6 +254,44 @@ namespace Week4.Library.WcfClient.ServiceReferenceLibrary {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetByIdBookCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetByIdBookCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Week4.Library.Core.Book Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Week4.Library.Core.Book)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class UpdateDataResoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public UpdateDataResoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public Week4.Library.Core.Models.Prestito Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((Week4.Library.Core.Models.Prestito)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class LibraryServiceClient : System.ServiceModel.ClientBase<Week4.Library.WcfClient.ServiceReferenceLibrary.ILibraryService>, Week4.Library.WcfClient.ServiceReferenceLibrary.ILibraryService {
         
         private BeginOperationDelegate onBeginFetchBooksDelegate;
@@ -288,6 +342,18 @@ namespace Week4.Library.WcfClient.ServiceReferenceLibrary {
         
         private System.Threading.SendOrPostCallback onDeletePrestitoCompletedDelegate;
         
+        private BeginOperationDelegate onBeginGetByIdBookDelegate;
+        
+        private EndOperationDelegate onEndGetByIdBookDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetByIdBookCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginUpdateDataResoDelegate;
+        
+        private EndOperationDelegate onEndUpdateDataResoDelegate;
+        
+        private System.Threading.SendOrPostCallback onUpdateDataResoCompletedDelegate;
+        
         public LibraryServiceClient() {
         }
         
@@ -322,6 +388,10 @@ namespace Week4.Library.WcfClient.ServiceReferenceLibrary {
         public event System.EventHandler<EditPrestitoCompletedEventArgs> EditPrestitoCompleted;
         
         public event System.EventHandler<DeletePrestitoCompletedEventArgs> DeletePrestitoCompleted;
+        
+        public event System.EventHandler<GetByIdBookCompletedEventArgs> GetByIdBookCompleted;
+        
+        public event System.EventHandler<UpdateDataResoCompletedEventArgs> UpdateDataResoCompleted;
         
         public System.Collections.Generic.List<Week4.Library.Core.Book> FetchBooks() {
             return base.Channel.FetchBooks();
@@ -717,6 +787,108 @@ namespace Week4.Library.WcfClient.ServiceReferenceLibrary {
             }
             base.InvokeAsync(this.onBeginDeletePrestitoDelegate, new object[] {
                         idPrestito}, this.onEndDeletePrestitoDelegate, this.onDeletePrestitoCompletedDelegate, userState);
+        }
+        
+        public Week4.Library.Core.Book GetByIdBook(int idBook) {
+            return base.Channel.GetByIdBook(idBook);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginGetByIdBook(int idBook, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetByIdBook(idBook, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Week4.Library.Core.Book EndGetByIdBook(System.IAsyncResult result) {
+            return base.Channel.EndGetByIdBook(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetByIdBook(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            int idBook = ((int)(inValues[0]));
+            return this.BeginGetByIdBook(idBook, callback, asyncState);
+        }
+        
+        private object[] OnEndGetByIdBook(System.IAsyncResult result) {
+            Week4.Library.Core.Book retVal = this.EndGetByIdBook(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetByIdBookCompleted(object state) {
+            if ((this.GetByIdBookCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetByIdBookCompleted(this, new GetByIdBookCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetByIdBookAsync(int idBook) {
+            this.GetByIdBookAsync(idBook, null);
+        }
+        
+        public void GetByIdBookAsync(int idBook, object userState) {
+            if ((this.onBeginGetByIdBookDelegate == null)) {
+                this.onBeginGetByIdBookDelegate = new BeginOperationDelegate(this.OnBeginGetByIdBook);
+            }
+            if ((this.onEndGetByIdBookDelegate == null)) {
+                this.onEndGetByIdBookDelegate = new EndOperationDelegate(this.OnEndGetByIdBook);
+            }
+            if ((this.onGetByIdBookCompletedDelegate == null)) {
+                this.onGetByIdBookCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetByIdBookCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetByIdBookDelegate, new object[] {
+                        idBook}, this.onEndGetByIdBookDelegate, this.onGetByIdBookCompletedDelegate, userState);
+        }
+        
+        public Week4.Library.Core.Models.Prestito UpdateDataReso(System.DateTime reso, int idLibro) {
+            return base.Channel.UpdateDataReso(reso, idLibro);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginUpdateDataReso(System.DateTime reso, int idLibro, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginUpdateDataReso(reso, idLibro, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public Week4.Library.Core.Models.Prestito EndUpdateDataReso(System.IAsyncResult result) {
+            return base.Channel.EndUpdateDataReso(result);
+        }
+        
+        private System.IAsyncResult OnBeginUpdateDataReso(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            System.DateTime reso = ((System.DateTime)(inValues[0]));
+            int idLibro = ((int)(inValues[1]));
+            return this.BeginUpdateDataReso(reso, idLibro, callback, asyncState);
+        }
+        
+        private object[] OnEndUpdateDataReso(System.IAsyncResult result) {
+            Week4.Library.Core.Models.Prestito retVal = this.EndUpdateDataReso(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnUpdateDataResoCompleted(object state) {
+            if ((this.UpdateDataResoCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.UpdateDataResoCompleted(this, new UpdateDataResoCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void UpdateDataResoAsync(System.DateTime reso, int idLibro) {
+            this.UpdateDataResoAsync(reso, idLibro, null);
+        }
+        
+        public void UpdateDataResoAsync(System.DateTime reso, int idLibro, object userState) {
+            if ((this.onBeginUpdateDataResoDelegate == null)) {
+                this.onBeginUpdateDataResoDelegate = new BeginOperationDelegate(this.OnBeginUpdateDataReso);
+            }
+            if ((this.onEndUpdateDataResoDelegate == null)) {
+                this.onEndUpdateDataResoDelegate = new EndOperationDelegate(this.OnEndUpdateDataReso);
+            }
+            if ((this.onUpdateDataResoCompletedDelegate == null)) {
+                this.onUpdateDataResoCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnUpdateDataResoCompleted);
+            }
+            base.InvokeAsync(this.onBeginUpdateDataResoDelegate, new object[] {
+                        reso,
+                        idLibro}, this.onEndUpdateDataResoDelegate, this.onUpdateDataResoCompletedDelegate, userState);
         }
     }
 }

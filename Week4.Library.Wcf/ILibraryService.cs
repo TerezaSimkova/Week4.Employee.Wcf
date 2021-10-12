@@ -36,6 +36,13 @@ namespace Week4.Library.Wcf
 
         [OperationContract]
         bool DeletePrestito(int idPrestito);
+
+        [OperationContract]
+        Book GetByIdBook(int idBook);
+
+        [OperationContract]
+        Prestito UpdateDataReso(DateTime reso, int idLibro);
+
     }
 
 

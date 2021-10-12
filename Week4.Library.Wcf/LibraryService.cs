@@ -85,5 +85,15 @@ namespace Week4.Library.Wcf
         {
             return libraryBL.FetchPrestiti();
         }
+
+        public Book GetByIdBook(int idBook)
+        {
+            return libraryBL.GetByIdBook(idBook);
+        }
+
+        public Prestito UpdateDataReso(DateTime reso, int idLibro)
+        {
+            return libraryBL.EditDataPrestitoById(reso, idLibro);
+        }
     }
 }

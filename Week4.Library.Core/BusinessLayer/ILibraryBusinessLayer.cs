@@ -16,5 +16,7 @@ namespace Week4.Library.Core.BusinessLayer
         bool DeletePrestito(int idPrestito);
         bool EditPrestito(Prestito newPrestito);
         List<Prestito> FetchPrestiti();
+        Book GetByIdBook(int idBook);
+        Prestito EditDataPrestitoById(DateTime reso, int idLibro);
     }
 }
