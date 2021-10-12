@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Week4.Library.Core.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Week4.Library.Core.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Week4.Library.Core" />
+  <xs:complexType name="ArrayOfPrestito">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Prestito" nillable="true" type="tns:Prestito" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPrestito" nillable="true" type="tns:ArrayOfPrestito" />
+  <xs:complexType name="Prestito">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DataPrestito" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DataReso" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IdLibro" type="xs:int" />
+      <xs:element minOccurs="0" name="Utente" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Week4.Library.Core" minOccurs="0" name="_Book" nillable="true" type="q1:Book" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Prestito" nillable="true" type="tns:Prestito" />
+</xs:schema>

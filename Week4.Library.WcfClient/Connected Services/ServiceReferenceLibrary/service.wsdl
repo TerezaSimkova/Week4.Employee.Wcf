@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="LibraryService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Week4.Library.Core" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Week4.Library.Core.Models" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ILibraryService_FetchBooks_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchBooks" />
+  </wsdl:message>
+  <wsdl:message name="ILibraryService_FetchBooks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchBooksResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILibraryService_CreateBook_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateBook" />
+  </wsdl:message>
+  <wsdl:message name="ILibraryService_CreateBook_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateBookResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILibraryService_EditBook_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditBook" />
+  </wsdl:message>
+  <wsdl:message name="ILibraryService_EditBook_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditBookResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILibraryService_DeleteBook_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBook" />
+  </wsdl:message>
+  <wsdl:message name="ILibraryService_DeleteBook_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBookResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILibraryService_FetchPrestiti_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchPrestiti" />
+  </wsdl:message>
+  <wsdl:message name="ILibraryService_FetchPrestiti_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchPrestitiResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILibraryService_CreatePrestito_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePrestito" />
+  </wsdl:message>
+  <wsdl:message name="ILibraryService_CreatePrestito_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePrestitoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILibraryService_EditPrestito_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditPrestito" />
+  </wsdl:message>
+  <wsdl:message name="ILibraryService_EditPrestito_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditPrestitoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILibraryService_DeletePrestito_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePrestito" />
+  </wsdl:message>
+  <wsdl:message name="ILibraryService_DeletePrestito_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePrestitoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ILibraryService">
+    <wsdl:operation name="FetchBooks">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILibraryService/FetchBooks" message="tns:ILibraryService_FetchBooks_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILibraryService/FetchBooksResponse" message="tns:ILibraryService_FetchBooks_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateBook">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILibraryService/CreateBook" message="tns:ILibraryService_CreateBook_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILibraryService/CreateBookResponse" message="tns:ILibraryService_CreateBook_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditBook">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILibraryService/EditBook" message="tns:ILibraryService_EditBook_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILibraryService/EditBookResponse" message="tns:ILibraryService_EditBook_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBook">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILibraryService/DeleteBook" message="tns:ILibraryService_DeleteBook_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILibraryService/DeleteBookResponse" message="tns:ILibraryService_DeleteBook_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchPrestiti">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILibraryService/FetchPrestiti" message="tns:ILibraryService_FetchPrestiti_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILibraryService/FetchPrestitiResponse" message="tns:ILibraryService_FetchPrestiti_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreatePrestito">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILibraryService/CreatePrestito" message="tns:ILibraryService_CreatePrestito_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILibraryService/CreatePrestitoResponse" message="tns:ILibraryService_CreatePrestito_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditPrestito">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILibraryService/EditPrestito" message="tns:ILibraryService_EditPrestito_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILibraryService/EditPrestitoResponse" message="tns:ILibraryService_EditPrestito_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePrestito">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILibraryService/DeletePrestito" message="tns:ILibraryService_DeletePrestito_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILibraryService/DeletePrestitoResponse" message="tns:ILibraryService_DeletePrestito_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ILibraryService" type="tns:ILibraryService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="FetchBooks">
+      <soap:operation soapAction="http://tempuri.org/ILibraryService/FetchBooks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateBook">
+      <soap:operation soapAction="http://tempuri.org/ILibraryService/CreateBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditBook">
+      <soap:operation soapAction="http://tempuri.org/ILibraryService/EditBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBook">
+      <soap:operation soapAction="http://tempuri.org/ILibraryService/DeleteBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchPrestiti">
+      <soap:operation soapAction="http://tempuri.org/ILibraryService/FetchPrestiti" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePrestito">
+      <soap:operation soapAction="http://tempuri.org/ILibraryService/CreatePrestito" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditPrestito">
+      <soap:operation soapAction="http://tempuri.org/ILibraryService/EditPrestito" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePrestito">
+      <soap:operation soapAction="http://tempuri.org/ILibraryService/DeletePrestito" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LibraryService">
+    <wsdl:port name="BasicHttpBinding_ILibraryService" binding="tns:BasicHttpBinding_ILibraryService">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/Week4.Library.Wcf/LibraryService/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
